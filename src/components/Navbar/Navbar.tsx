@@ -12,8 +12,8 @@ export const Navbar = () => (
     alignItems="center"
     bg="slateblue"
     shadow="sm"
-    mb="4"
-    minH="20">
+    minH="20"
+    zIndex="sticky">
     <Container
       maxW="container.lg"
       mx="auto"
@@ -34,7 +34,7 @@ export const Navbar = () => (
         rounded="full"
         border="2px"
         borderColor="white"
-        transition="all 300ms ease-in-out"
+        transition="all 250ms ease-in-out"
         _hover={{ color: 'slateblue', bg: 'white' }}
         _focus={{ color: 'slateblue', bg: 'white' }}>
         <EditIcon height={6} width={6} />

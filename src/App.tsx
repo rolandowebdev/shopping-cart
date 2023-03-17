@@ -10,6 +10,7 @@ export const App = () => (
       as="main"
       maxW="container.lg"
       mx="auto"
+      py="2"
       sx={{ minH: 'calc(100vh - 96px)' }}>
       <Routes>
         <Route path="/" element={<Home />} />
