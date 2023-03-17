@@ -1,7 +1,8 @@
+/* eslint-disable import/extensions */
 import { Link as RouterLink } from 'react-router-dom'
 import { Button, Container, Flex, Link, Text } from '@chakra-ui/react'
 import { EditIcon } from '@chakra-ui/icons'
-import { links } from '@/data/links'
+import links from '../../data/links.json'
 
 export const Navbar = () => (
   <Flex
