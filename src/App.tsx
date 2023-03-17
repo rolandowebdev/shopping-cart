@@ -1,22 +1,18 @@
-import { Container } from '@chakra-ui/react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Navbar } from './components'
-import { About, Home, Store } from './pages'
+import { ShoppingCartProvider } from '@/context'
+import { PageContainer } from '@/layouts'
+import { About, Home, Store } from '@/pages'
 
 export const App = () => (
   <BrowserRouter>
-    <Navbar />
-    <Container
-      as="main"
-      maxW="container.lg"
-      mx="auto"
-      py="2"
-      sx={{ minH: 'calc(100vh - 96px)' }}>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/store" element={<Store />} />
-      </Routes>
-    </Container>
+    <ShoppingCartProvider>
+      <PageContainer>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/store" element={<Store />} />
+        </Routes>
+      </PageContainer>
+    </ShoppingCartProvider>
   </BrowserRouter>
 )
