@@ -1,24 +1,59 @@
-import { Container, Flex, Text } from '@chakra-ui/react'
+import { Link as RouterLink } from 'react-router-dom'
+import { Button, Container, Flex, Link, Text } from '@chakra-ui/react'
+import { EditIcon } from '@chakra-ui/icons'
+import { links } from '@/data/links'
 
-type NavbarProps = {
-  path: string
-}
-
-export const Navbar = ({ path }: NavbarProps) => (
+export const Navbar = () => (
   <Flex
-    as="nav"
-    justifyContent="space-between"
+    as="header"
+    position="sticky"
+    top={0}
     alignItems="center"
     bg="slateblue"
     shadow="sm"
-    px="4"
-    py="4"
     mb="4"
     minH="20">
-    <Container maxW="container.lg" mx="auto" w="full">
-      <Text as="span" fontSize="2xl" fontWeight="bold">
-        {path}
-      </Text>
+    <Container
+      maxW="container.lg"
+      mx="auto"
+      w="full"
+      display="flex"
+      justifyContent="space-between"
+      alignItems="center">
+      <Flex as="nav" alignItems="center" gap={4}>
+        {links.map((link) => (
+          <Link key={link.name} to={link.path} as={RouterLink} fontSize="xl">
+            {link.name}
+          </Link>
+        ))}
+      </Flex>
+      <Button
+        position="relative"
+        p={2}
+        rounded="full"
+        border="2px"
+        borderColor="white"
+        transition="all 300ms ease-in-out"
+        _hover={{ color: 'slateblue', bg: 'white' }}
+        _focus={{ color: 'slateblue', bg: 'white' }}>
+        <EditIcon height={6} width={6} />
+        <Text
+          position="absolute"
+          right={0}
+          bottom={0}
+          transform="translate(35%, 35%)"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          fontWeight="bold"
+          bg="red.500"
+          color="white"
+          width={6}
+          rounded="full"
+          sx={{ aspectRatio: '1 / 1' }}>
+          3
+        </Text>
+      </Button>
     </Container>
   </Flex>
 )

@@ -5,7 +5,7 @@ import { About, Home, Store } from './pages'
 
 export const App = () => (
   <BrowserRouter>
-    <Navbar path="Navbar" />
+    <Navbar />
     <Container
       as="main"
       maxW="container.lg"
