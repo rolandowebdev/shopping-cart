@@ -3,28 +3,28 @@
     "id": 1,
     "name": "Book",
     "description": " This sofa is perfect for modern tropical spaces, baroque inspired spaces.",
-    "price": 10.99,
+    "price": 150000,
     "imgUrl": "/images/book.jpg"
   },
   {
     "id": 2,
-    "name": "Computer",
+    "name": "Laptop",
     "description": " This sofa is perfect for modern tropical spaces, baroque inspired spaces.",
-    "price": 1199,
+    "price": 18000000,
     "imgUrl": "/images/computer.jpg"
   },
   {
     "id": 3,
     "name": "Banana",
     "description": " This sofa is perfect for modern tropical spaces, baroque inspired spaces.",
-    "price": 1.05,
+    "price": 15000,
     "imgUrl": "/images/banana.jpg"
   },
   {
     "id": 4,
     "name": "Car",
     "description": " This sofa is perfect for modern tropical spaces, baroque inspired spaces.",
-    "price": 14000,
+    "price": 500000000,
     "imgUrl": "/images/car.jpg"
   }
 ]

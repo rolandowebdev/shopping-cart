@@ -9,15 +9,17 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react'
+import { formatCurrency } from '@/utilities/formatCurrency'
 
 type CardProps = {
+  id: number
   name: string
   description: string
   price: number
   imgUrl: string
 }
 
-export const Card = ({ name, description, price, imgUrl }: CardProps) => (
+export const Card = ({ id, name, description, price, imgUrl }: CardProps) => (
   <CardChakra bg="blackAlpha.600" borderRadius="lg" overflow="hidden">
     <CardBody>
       <Image
@@ -31,9 +33,10 @@ export const Card = ({ name, description, price, imgUrl }: CardProps) => (
         <Heading as="h2" fontSize="2xl" fontWeight="bold">
           {name}
         </Heading>
+        <Text>{id}</Text>
         <Text>{description}</Text>
         <Text color="slateblue" fontSize="2xl">
-          ${price}
+          {formatCurrency(price)}
         </Text>
       </Stack>
     </CardBody>
