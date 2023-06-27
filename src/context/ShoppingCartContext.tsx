@@ -51,9 +51,13 @@ export const ShoppingCartProvider = ({
   const increaseCartQuantity = useCallback(
     (id: number) => {
       setCartItems((currentItems) => {
-        if (currentItems.find((item) => item.id === id) == null)
+        if (
+          currentItems !== null &&
+          currentItems !== undefined &&
+          currentItems.find((item) => item.id === id) == null
+        )
           return [...currentItems, { id, quantity: 1 }]
-        return currentItems.map((item) => {
+        return (currentItems ?? []).map((item) => {
           if (item.id === id) return { ...item, quantity: item.quantity + 1 }
           return item
         })
@@ -65,9 +69,13 @@ export const ShoppingCartProvider = ({
   const decreaseCartQuantity = useCallback(
     (id: number) => {
       setCartItems((currentItems) => {
-        if (currentItems.find((item) => item.id === id)?.quantity === 1)
-          return currentItems.filter((item) => item.id !== id)
-        return currentItems.map((item) => {
+        if (
+          currentItems !== null &&
+          currentItems !== undefined &&
+          currentItems.find((item) => item.id === id)?.quantity === 1
+        )
+          return (currentItems ?? []).filter((item) => item.id !== id)
+        return (currentItems ?? []).map((item) => {
           if (item.id === id) return { ...item, quantity: item.quantity - 1 }
           return item
         })
@@ -79,7 +87,7 @@ export const ShoppingCartProvider = ({
   const removeFromCart = useCallback(
     (id: number) => {
       setCartItems((currentItems) =>
-        currentItems.filter((item) => item.id !== id)
+        (currentItems ?? []).filter((item) => item.id !== id)
       )
     },
     [setCartItems]
