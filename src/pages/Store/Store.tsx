@@ -16,7 +16,7 @@ export const Store = () => (
         'repeat(3, 1fr)',
       ]}
       gap={4}>
-      {items.map((item) => (
+      {(items ?? []).map((item) => (
         <Card
           key={item.id}
           id={item.id}

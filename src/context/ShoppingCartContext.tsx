@@ -37,13 +37,14 @@ export const ShoppingCartProvider = ({
     []
   )
 
-  const cartQuantity = cartItems.reduce(
+  const cartQuantity = (cartItems ?? []).reduce(
     (quantity, item) => item.quantity + quantity,
     0
   )
 
   const getItemQuantity = useCallback(
-    (id: number) => cartItems.find((item) => item.id === id)?.quantity || 0,
+    (id: number) =>
+      (cartItems ?? []).find((item) => item.id === id)?.quantity || 0,
     [cartItems]
   )
 

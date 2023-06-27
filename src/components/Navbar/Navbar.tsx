@@ -26,10 +26,14 @@ export const Navbar = () => {
   const { cartQuantity, cartItems } = useShoppingCart()
   const { isOpen, onOpen, onClose } = useDisclosure()
 
-  const totalCost = cartItems.reduce((total, cartItem) => {
-    const storeItem = items.find((item) => item.id === cartItem.id)
-    return total + (storeItem?.price || 0) * cartItem.quantity
-  }, 0)
+  const totalCost =
+    cartItems !== null &&
+    cartItems !== undefined &&
+    cartItems.reduce((total, cartItem) => {
+      const storeItem = (items ?? []).find((item) => item?.id === cartItem?.id)
+      return total + (storeItem?.price || 0) * cartItem.quantity
+    }, 0)
+
   return (
     <Flex
       as="header"
@@ -49,7 +53,7 @@ export const Navbar = () => {
         justifyContent="space-between"
         alignItems="center">
         <Flex as="nav" alignItems="center" gap={4}>
-          {links.map((link) => (
+          {(links ?? []).map((link) => (
             <Link
               key={link.name}
               to={link.path}
@@ -109,7 +113,7 @@ export const Navbar = () => {
                   />
                 </DrawerHeader>
                 <DrawerBody display="flex" flexDirection="column" gap={4}>
-                  {cartItems.map((item) => (
+                  {(cartItems ?? []).map((item) => (
                     <CardItem
                       key={item.id}
                       id={item.id}
@@ -122,7 +126,7 @@ export const Navbar = () => {
                   <Text as="p" fontSize="2xl">
                     Total :{' '}
                     <Text as="span" fontWeight="bold">
-                      {formatCurrency(totalCost)}
+                      {formatCurrency(totalCost as number)}
                     </Text>
                   </Text>
                 </DrawerFooter>

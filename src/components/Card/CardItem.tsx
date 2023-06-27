@@ -21,7 +21,7 @@ type CardItemProps = {
 
 export const CardItem = ({ id, quantity }: CardItemProps) => {
   const { removeFromCart } = useShoppingCart()
-  const storeItem = items.find((item) => item.id === id) ?? null
+  const storeItem = (items ?? []).find((item) => item?.id === id)
 
   return (
     <CardChakra
